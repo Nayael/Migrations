@@ -1,0 +1,16 @@
+<?php
+
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+define('MAIN_PATH', __DIR__);
+
+echo "\n*******************************\n\n";
+
+// Get the proper controller, do the action, and exit the script
+require_once MAIN_PATH . '/classes/ControllerFactory.php';
+$controller = ControllerFactory::getController($argv);
+$controller->doAction($argv);
+
+echo "\n\n";
+exit;
+?>
