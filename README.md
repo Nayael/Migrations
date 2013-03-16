@@ -1,0 +1,1 @@
+# A PHP utility to easily handle MySQL migrations
