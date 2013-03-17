@@ -8,7 +8,7 @@
  */
 class HelpController extends Controller
 {
-    public function doAction()
+    public function doAction($argv)
     {
 
     }

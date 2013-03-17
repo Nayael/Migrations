@@ -16,9 +16,10 @@ abstract class Controller
     
     /**
      * Determines what action should be performed and takes that action.
+     * @param array $argv The command arguments
      * @return void
      */
-    abstract public function doAction();
+    abstract public function doAction($argv);
     
     /**
      * Displays the help page for this controller.
