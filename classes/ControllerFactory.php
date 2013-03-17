@@ -1,4 +1,5 @@
 <?php
+namespace Nayael\Migrations;
 
 /**
  * This class is used to get a particular controller from a command line argument
@@ -24,6 +25,7 @@ class ControllerFactory
             die('Invalid argument "' . $controller_name . '". Run "php migrate help" to see available commands.' . "\n\n");
         }
         require_once MAIN_PATH . '/classes/controllers/' . $class . '.php';
+        $class = '\\Nayael\\Migrations\\Controller\\' . $class;
 
         $controller = new $class();
         return $controller;

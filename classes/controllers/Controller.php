@@ -1,4 +1,5 @@
 <?php
+namespace Nayael\Migrations\Controller;
 
 /**
  * Abstract controller class

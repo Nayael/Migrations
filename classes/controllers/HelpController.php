@@ -1,4 +1,5 @@
 <?php
+namespace Nayael\Migrations\Controller;
 
 /**
  * Displays help on the shell

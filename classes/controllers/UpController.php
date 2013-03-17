@@ -1,9 +1,11 @@
 <?php
+namespace Nayael\Migrations\Controller;
 
 require_once MAIN_PATH . '/lib/File.php';
 require_once MAIN_PATH . '/classes/helpers/MigrationHelper.php';
 
-use Nayael\File\File as File;
+use Nayael\File\File;
+use Nayael\Migrations\Helper\MigrationHelper;
 
 /**
  * Executes MySQL migrations (UP instructions)

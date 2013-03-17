@@ -1,4 +1,6 @@
-<?php 
+<?php
+namespace Nayael\Migrations\Helper;
+
 /**
  * A helper class to connect to a database using PDO
  * @package Migrations

@@ -1,4 +1,8 @@
 <?php
+namespace Nayael\Migrations\Helper;
+
+require_once MAIN_PATH . '/classes/helpers/PDOHelper.php';
+
 /**
  * Migration Helper to run MySQL migrations
  * @package Migrations
