@@ -34,6 +34,7 @@ class HelpController extends Controller
         echo "Commands:\n";
         echo "up [version]           Updates the database to the latest version\n";
         echo "                       (or a specific version if given)\n";
-        echo "down [version]         Downgrades the database to the given version\n\n";
+        echo "down [version]         Downgrades the database to the given version\n";
+        echo "                       (Coming Soon)\n\n";
     }
 }
