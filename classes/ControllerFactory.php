@@ -22,7 +22,8 @@ class ControllerFactory
         $class = ucfirst($controller_name) . 'Controller';
 
         if (!file_exists(MAIN_PATH . '/classes/controllers/' . $class . '.php')) {
-            die('Invalid argument "' . $controller_name . '". Run "php migrate help" to see available commands.' . "\n\n");
+            echo 'Invalid argument "' . $controller_name . '". Run "php migrate help" to see available commands.' . "\n\n";
+            return;
         }
         require_once MAIN_PATH . '/classes/controllers/' . $class . '.php';
         $class = '\\Nayael\\Migrations\\Controller\\' . $class;

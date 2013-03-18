@@ -81,6 +81,13 @@ class UpController extends Controller
 
     public function displayHelp()
     {
-        
+        echo "PHP Mysql Migrations\n\n";
+        echo "\"up\" command:\n";
+        echo "Updates the database to the latest version (or a specific version if given)\n\n";
+        echo "Reads all the '[version]-up.sql' files and executes the queries from the current version\n";
+        echo "to the given version (or latest if none given).\n\n";
+        echo "Examples:\n";
+        echo "'php migrate up' - Updates to the latest version\n";
+        echo "'php migrate up 12' - Updates to version 12\n";
     }
 }
