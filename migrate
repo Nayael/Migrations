@@ -1,7 +1,7 @@
 <?php
-
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
 define('MAIN_PATH', __DIR__);
 
 echo "\n*******************************\n\n";
@@ -12,6 +12,6 @@ require_once MAIN_PATH . '/classes/ControllerFactory.php';
 $controller = Nayael\Migrations\ControllerFactory::getController($argv);
 $controller->doAction($argv);
 
-echo "\n\n";
+echo "\n*******************************\n\n";
 exit;
 ?>

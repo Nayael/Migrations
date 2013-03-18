@@ -43,11 +43,11 @@ abstract class Controller
         foreach ($lines as &$line) {
             // We update the line with the "current_version" parameter
             if (strpos($line, 'current_version') === 0) {
-                $line = 'current_version = ' . $version . $config_file->getEOL();
+                $line = 'current_version = ' . $version;
                 break;
             }
         }
         // We rewrite the file with the updated parameter
-        $config_file->writeLines($lines);
+        $config_file->writeLines($lines, true, false);
     }
 }
