@@ -19,8 +19,20 @@ class MigrationHelper
      */
     static public function runMigration($file, $config)
     {
-        echo "\n";
-        echo $file->read();
-        echo "\n";
+        // First, getting the PDO object
+        $pdo = PDOHelper::getPdoObj($config['db']);
+        if (null === $pdo) {
+            return false;
+        }
+        
+        // We try to execture the sql query inside the file
+        try {
+            $query = $file->read();
+            $exec = $pdo->exec($query);
+        } catch (PDOException $e) {
+            echo "\nError while executing the following query :\n" . $query . "\n";
+            return false;
+        }
+        return true;
     }
 }

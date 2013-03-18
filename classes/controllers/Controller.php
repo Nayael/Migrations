@@ -1,6 +1,10 @@
 <?php
 namespace Nayael\Migrations\Controller;
 
+require_once MAIN_PATH . '/lib/File.php';
+
+use Nayael\File\File;
+
 /**
  * Abstract controller class
  * @package Migrations
@@ -27,4 +31,23 @@ abstract class Controller
      * @return void
      */
     abstract public function displayHelp();
+
+    /**
+     * Updates the current_version property in the config file
+     * @param  int $version The new current version
+     */
+    public function updateVersion($version)
+    {
+        $config_file = new File(MAIN_PATH . '/config/build.ini');
+        $lines = $config_file->readLines();
+        foreach ($lines as &$line) {
+            // We update the line with the "current_version" parameter
+            if (strpos($line, 'current_version') === 0) {
+                $line = 'current_version = ' . $version . $config_file->getEOL();
+                break;
+            }
+        }
+        // We rewrite the file with the updated parameter
+        $config_file->writeLines($lines);
+    }
 }

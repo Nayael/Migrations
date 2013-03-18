@@ -57,14 +57,18 @@ class UpController extends Controller
                     echo 'DATABASE ' . $config['db']['database'] . " is already up to date.\n";
                     break;
                 }
-                echo '> DATABASE ' . $config['db']['database'] . ' upgraded to version ' . ($i - 1) . ".\n";
+                echo "\n> DATABASE " . $config['db']['database'] . ' upgraded to version ' . ($i - 1) . ".\n";
                 break;
             }
 
             // We run the migration for each version
-            MigrationHelper::runMigration($sql_file, $config);
+            if (!MigrationHelper::runMigration($sql_file, $config)) {
+                echo "\n-- UPGRADE FAILED --\n";
+                return;
+            }
         } while ($sql_file->exists());
 
+        $this->updateVersion($target_version);  // We update the current_version in the config file
         echo "\n-- UPGRADE SUCCESSFUL --\n";
     }
 
