@@ -12,7 +12,7 @@ class PDOHelper
     static public function getPdoObj(array $db_config)
     {
         try {
-            $pdo = new \PDO('mysql:host=' . $db_config['host'] . ';dbname=' . $db_config['database'], $db_config['username'], $db_config['password']);
+            $pdo = new \PDO('mysql:host=' . $db_config['host'] . ';dbname=' . $db_config['database'], $db_config['username'], $db_config['password'], array(\PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         } catch(Exception $e) {
             echo "> Error while connecting to database :\n" . $e->getMessage();
             return null;
