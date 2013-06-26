@@ -1,0 +1,10 @@
+; MySQL Migration settings
+current_version = 0
+migrations_path = C:\your\path\to\migrations
+
+[db]
+host = localhost
+username = user
+password = pass
+port = 3306
+database = db
